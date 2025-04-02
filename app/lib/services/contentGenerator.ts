@@ -3,7 +3,7 @@ import { WebinarInput, WebinarContent } from '../../types/presentation';
 // ========================================
 // SIMPLE TOGGLE: Set to true to use LLM, false to use mock content
 // ========================================
-export const USE_REAL_LLM = true;
+export const USE_REAL_LLM = false;
 // ========================================
 
 /**
