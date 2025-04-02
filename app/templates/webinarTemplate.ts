@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Presentation, Slide, WebinarContent } from '../types/presentation';
+import { Presentation, Slide, WebinarContent, IconContent } from '../types/presentation';
 
 /**
  * Convert generated webinar content into a complete presentation with slides
@@ -14,20 +14,41 @@ export function createPresentation(webinarTitle: string, content: WebinarContent
       type: 'title'
     },
     
-    // Main outcome slide
+    // Main outcome slide with icon layout
     {
       id: uuidv4(),
-      title: "Today's Main Outcome",
-      content: content.mainOutcome,
-      type: 'text'
+      title: "Key Benefits",
+      content: [
+        {
+          icon: 'target',
+          title: 'Clear Outcome',
+          description: content.mainOutcome
+        },
+        {
+          icon: 'trending',
+          title: 'Proven Results',
+          description: 'Transform your approach with proven strategies'
+        },
+        {
+          icon: 'award',
+          title: 'Expert Guidance',
+          description: 'Learn from real-world experience'
+        },
+        {
+          icon: 'check',
+          title: 'Actionable Steps',
+          description: 'Get clear, implementable action items'
+        }
+      ],
+      type: 'hexagon-icons'
     },
     
-    // Differentiation slide
+    // Differentiation slide with numbered list
     {
       id: uuidv4(),
-      title: "3 Reasons Why This Webinar Is Different",
+      title: "Why This Webinar Is Different",
       content: content.differentReasons,
-      type: 'bullets'
+      type: 'numbered-list'
     },
     
     // Target audience slide
@@ -38,12 +59,12 @@ export function createPresentation(webinarTitle: string, content: WebinarContent
       type: 'text'
     },
     
-    // Pain points slide
+    // Pain points slide with steps
     {
       id: uuidv4(),
-      title: "Why You Are Here: Pain Points",
+      title: "Common Challenges We'll Address",
       content: content.painPoints,
-      type: 'bullets'
+      type: 'steps'
     },
     
     // Secrets slide
